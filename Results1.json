@@ -1,0 +1,52 @@
+[
+  {
+    "CultureID": "2     ",
+    "Name": "julian-alvarez-erez",
+    "ModifiedDate": "2009-02-21T00:00:00"
+  },
+  {
+    "CultureID": "4     ",
+    "Name": "Joan Laporta",
+    "ModifiedDate": "2023-04-19T02:41:05.807"
+  },
+  {
+    "CultureID": "5     ",
+    "Name": "Leo Messi",
+    "ModifiedDate": "2023-04-19T02:46:29.133"
+  },
+  {
+    "CultureID": "ar    ",
+    "Name": "Arabic",
+    "ModifiedDate": "2008-04-30T00:00:00"
+  },
+  {
+    "CultureID": "en    ",
+    "Name": "English",
+    "ModifiedDate": "2008-04-30T00:00:00"
+  },
+  {
+    "CultureID": "es    ",
+    "Name": "Spanish",
+    "ModifiedDate": "2008-04-30T00:00:00"
+  },
+  {
+    "CultureID": "fr    ",
+    "Name": "French",
+    "ModifiedDate": "2008-04-30T00:00:00"
+  },
+  {
+    "CultureID": "he    ",
+    "Name": "Hebrew",
+    "ModifiedDate": "2008-04-30T00:00:00"
+  },
+  {
+    "CultureID": "th    ",
+    "Name": "Thai",
+    "ModifiedDate": "2008-04-30T00:00:00"
+  },
+  {
+    "CultureID": "zh-cht",
+    "Name": "Chinese",
+    "ModifiedDate": "2008-04-30T00:00:00"
+  }
+]
