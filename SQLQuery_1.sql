@@ -93,3 +93,27 @@
 
 -- SELECT * FROM [AdventureWorks2019].[Sales].[Store];
 
+-- SELECT top(5) * FROM [AdventureWorks2019].[Person].[Password];
+-- SELECT top(5) * FROM [AdventureWorks2019].[Person].[Person];
+use [AdventureWorks2019];
+
+-- SELECT top(5)
+--     [PasswordHash], PE.[FirstName], PE.ModifiedDate as 'PersonDate', PM.EmailAddress
+-- FROM [Person].[Password] as PA
+--     INNER JOIN [Person].[Person] as PE
+--             ON PA.BusinessEntityID = PE.BusinessEntityID
+--     INNER JOIN [Person].[EmailAddress] AS PM
+--             ON PM.BusinessEntityID = PA.BusinessEntityID
+-- ORDER BY PE.ModifiedDate DESC;
+
+-- SELECT TOP(5)
+--         PP.FirstName, PA.City, PA.PostalCode, PA.AddressLine1
+-- FROM [Person].[Person] AS PP
+--     INNER JOIN [Person].[Address] AS PA
+--             ON PP.BusinessEntityID = PA.AddressID
+--     INNER JOIN [Person].[CountryRegion] AS PC
+--             ON PP.FirstName = PC.Name;
+
+-- select * from [Person].[CountryRegion]
+-- WHERE [Name] = 'Jordan';
+-- select * from [Person].[Person];
