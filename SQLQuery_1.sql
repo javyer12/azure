@@ -106,14 +106,70 @@ use [AdventureWorks2019];
 --             ON PM.BusinessEntityID = PA.BusinessEntityID
 -- ORDER BY PE.ModifiedDate DESC;
 
--- SELECT TOP(5)
+-- SELECT TOP 5
 --         PP.FirstName, PA.City, PA.PostalCode, PA.AddressLine1
--- FROM [Person].[Person] AS PP
---     INNER JOIN [Person].[Address] AS PA
+-- FROM Person.Person AS PP
+--     INNER JOIN Person.Address AS PA
 --             ON PP.BusinessEntityID = PA.AddressID
---     INNER JOIN [Person].[CountryRegion] AS PC
+--     INNER JOIN Person.CountryRegion AS PC
 --             ON PP.FirstName = PC.Name;
 
 -- select * from [Person].[CountryRegion]
 -- WHERE [Name] = 'Jordan';
 -- select * from [Person].[Person];
+
+------------------LEFT JOIN-----------------
+
+-- SELECT top 5 SP.BusinessEntityID AS 'person id', SC.CardNumber AS 'cards', SC.CardType AS 'type' FROM Sales.CreditCard as SC
+--     left JOIN Sales.PersonCreditCard as SP
+--             ON SP.CreditCardID = SC.CreditCardID;
+
+-- SELECT top 5 * FROM Sales.PersonCreditCard;
+
+-- SELECT  DISTINCT CardType FROM Sales.CreditCard AS SC;
+-- WHERE SC.CardType =  'Distinguish';
+
+-- SELECT  SCU.AccountNumber, SC.CardNumber FROM Sales.Customer AS SCU
+--     LEFT JOIN Sales.CreditCard AS SC
+--             ON  SC.CardNumber = SCU.AccountNumber
+-- WHERE CardNumber IS NOT NULL;
+
+-- SELECT DISTINCT top 5 * FROM Sales.SalesOrderDetail where ProductID = 316;
+-- SELECT DISTINCT top 5 * FROM Production.Product;
+
+-- SELECT SS.Name,SS.SalesPersonID FROM Sales.Store AS SS 
+--     LEFT JOIN Sales.SalesPerson AS SSP
+--             ON  SS.SalesPersonID = SSP.BusinessEntityID;
+
+-- SELECT TOP 5 * FROM Sales.SalesPerson;
+
+--------------------RIGHT JOIN---------------------
+-- SELECT * FROM Sales.Store AS SS 
+--     INNER JOIN Sales.SalesPerson AS SSP
+--             ON  SS.SalesPersonID = SSP.BusinessEntityID;
+
+-- SELECT * FROM Sales.Store, Sales.SalesPerson; une las dos tablas
+
+
+-------------------FULL OUTER JOIN--------------------
+
+-- SELECT TOP 50 SS.ModifiedDate AS 'SS' ,SSP.ModifiedDate AS 'SSP', SS.Name, SS.SalesPersonID, SSP.BusinessEntityID FROM Sales.Store AS SS 
+--     FULL OUTER JOIN Sales.SalesPerson AS SSP
+--             ON SS.ModifiedDate = SSP.ModifiedDate
+-- WHERE SS.ModifiedDate BETWEEN  '2005-02-21 00:00:00.000' AND '2015-02-21 00:00:00.000';
+
+-------------------SELFT JOIN---------------------
+
+-- SELECT TOP 5 * FROM Person.Person;
+
+-- SELECT TOP 10 A.FirstName AS '#1', B.FirstName AS 'B-NAME', B.LastName AS '#2'
+-- FROM Person.Person AS A, Person.Person AS B
+-- WHERE A.BusinessEntityID = B.BusinessEntityID 
+--     AND B.Title IS NOT NULL
+-- ORDER BY A.ModifiedDate DESC;
+
+
+----------------------UNION OPERATOR ---------------
+SELECT TOP 5 FirstName FROM Person.Person
+UNION
+SELECT TOP 5 EmailAddress FROM Person.EmailAddress;
