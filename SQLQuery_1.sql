@@ -170,6 +170,39 @@ use [AdventureWorks2019];
 
 
 ----------------------UNION OPERATOR ---------------
-SELECT TOP 5 FirstName FROM Person.Person
-UNION
-SELECT TOP 5 EmailAddress FROM Person.EmailAddress;
+
+
+-- SELECT TOP 5 City  FROM Person.Address
+-- UNION ALL
+-- SELECT TOP 5 EmailAddress FROM Person.EmailAddress;
+
+
+-----------------GROUP BY-----------------
+
+-- Retorna la cantidad de id de las ciudades cuyo nombre es el mismo
+SELECT COUNT(AddressId), City
+FROM Person.Address
+GROUP BY City;
+
+SELECT COUNT(City)
+FROM Person.Address
+WHERE City = 'London';
+
+SELECT COUNT(AddressId) as '#deCiudades', City
+FROM Person.Address
+GROUP BY City
+HAVING COUNT(AddressId) BETWEEN 100 AND 300
+ORDER BY COUNT(AddressId) ASC;
+
+
+SELECT AccountNumber FROM Sales.Customer;
+
+
+-- ----------------EXISTS OPERATOR----------------
+SELECT SC.AccountNumber
+FROM Sales.Customer as SC
+WHERE EXISTS
+(SELECT CardNumber FROM Sales.CreditCard   WHERE PersonID is not null and CreditCardID = SC.CustomerID);
+
+select PersonID from Sales.Customer where PersonID is not null;
+select CreditCardID from Sales.CreditCard;
