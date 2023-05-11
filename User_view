@@ -1,0 +1,28 @@
+USE People
+GO
+-- crear vistas, las vistas sirve para junto a los procedimientos 
+-- almacenados, ejecutar tareas repetitivas
+
+CREATE VIEW vw_Users
+AS
+    SELECT UserName, UserNeighborhood,UserAge
+    FROM Users;
+GO
+
+CREATE PROCEDURE pr_Users @age int, @direction char
+    AS
+    BEGIN
+        IF @age > 25
+        BEGIN
+            PRINT 'Girls older than' + CAST(@age AS varchar(10));
+            SELECT UserName, UserNeighborhood,UserAge FROM vw_Users
+                WHERE UserAge > 25 AND UserNeighborhood = @direction;
+        END
+        ELSE
+        BEGIN
+            PRINT 'Girls younger than' + CAST(@age AS varchar(10));
+            SELECT UserName, UserNeighborhood, UserAge FROM vw_Users
+                WHERE UserAge < 25 AND UserNeighborhood = @direction;
+        END
+    END
+GO

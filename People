@@ -1,0 +1,38 @@
+CREATE DATABASE People 
+-- La palabra clave GO separa las instrucciones cuando se envían varias instrucciones en un solo lote. 
+-- GO es opcional cuando el lote solo contiene una instrucción.
+GO
+
+USE People
+GO
+
+-- dbo. hace referencia al propietario de la base de datos
+CREATE TABLE dbo.Users
+    (UserId  UNIQUEIDENTIFIER DEFAULT NEWID() PRIMARY KEY NOT NULL,
+    UserName varchar(25) NOT NULL,
+    UserLastName varchar(25) NOT NULL,
+    UserNeighborhood varchar(50) NOT NULL,
+    UserDescription varchar(max) NOT NULL,
+    UserAge int NULL
+    )
+GO
+
+-- Siempre se debe especificar los valores que son nulos con el keyword "null"
+INSERT dbo.Users (UserNeighborhood,UserName,UserLastName,UserDescription,UserAge)
+    VALUES ('Col. Brisas del Valle','Marisol', 'Mejia',  'delgada, cabello cafe y corto. ojos oscuros', 19)
+GO
+
+UPDATE dbo.Users
+    SET UserAge = 17
+
+UPDATE dbo.Users 
+    SET UserNeighborhood = 'Col San Antonio'
+    WHERE UserId = '092a9cb0-b98c-4ff1-b134-710a2aeccd99'
+GO
+
+TRUNCATE TABLE People.dbo.Users;
+
+EXECUTE pr_Users 20, 'Col San Antonio';
+
+SELECT * FROM vw_Users
+GO
